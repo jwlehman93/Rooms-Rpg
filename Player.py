@@ -36,8 +36,10 @@ class Player(object):
         return self.enemies + self.damsels + self.items
 
     def add_inventory(self,item):
+        self.inventory.add(item)
 
-        print("\n" + item.name + "has been added to your inventory")
+
+
     
 
     
