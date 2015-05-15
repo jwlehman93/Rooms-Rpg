@@ -17,11 +17,13 @@ def processCommand(msg,player):
         player.enterRoom(player.current_room.exits["west"])
     elif(msg == "look"):
         print(player.current_room)
+    elif(msg == "status"):
+        print("\n=====%d's Status=====\nHealth: %d" % player.health)
     elif(msg == "exit"):
        player.isAlive = False 
        print("\n=====YOU HAVE FAILED TO ESCAPE=====")
     elif(msg == "score"):
-        print("\n====%s's score====\nEnemies Killed: %d\nDamsels Rescued: %d\nItems Recovered: %d\nTotal Score: %d",player.name,player.enemies,player.damsels,player.items,player.get_total_score())
+        print("\n====%s's score====\nEnemies Killed: %d\nDamsels Rescued: %d\nItems Recovered: %d\nTotal Score: %d"%(player.name,player.enemies,player.damsels,player.items,player.get_total_score()))
     elif(msg == "inv"):
         for i in player.inventory:
             print(i.name)
@@ -31,11 +33,7 @@ def processCommand(msg,player):
         else:
             for i in player.inventory:
                 if(i.name == ans):
-                    print i.description
-
-
-        
-
+                    print(i.description)
     else:
         print("\nI don't understand what you are asking. Enter 'help' if you do not know what to do.\n")
 

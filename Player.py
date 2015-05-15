@@ -1,4 +1,5 @@
 import Rooms
+import Item
 class Player(object):
     """Player that traverses rooms"""
     def __init__(self,name):
@@ -8,7 +9,7 @@ class Player(object):
         self.damsels = 0
         self.enemies = 0
         self.items = 0
-        self.inventory = list()
+        self.inventory = Item.Inventory()
         self.health = 10
     
     def enterRoom(self,room):
@@ -33,6 +34,12 @@ class Player(object):
     
     def get_total_score(self):
         return self.enemies + self.damsels + self.items
+
+    def add_inventory(self,item):
+
+        print("\n" + item.name + "has been added to your inventory")
+    
+
     
 
     
