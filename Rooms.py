@@ -1,34 +1,32 @@
-directions = ["north","east","south","west"]
 class Room(object):
     """Class that creates room nodes for RoomList"""
-    isOccupied = False
     def __init__(self, name, north=None, east=None, west=None,south=None):
         self.name = name
-        self.west = west
-        self.east = east
-        self.north = north
-        self.south = south
-        #exits list must always be in format [n,e,s,w]
-        self.exits = [north,east,south,west]
+        self.exits = dict()
+        self.exits["north"] = north
+        self.exits["east"] = east
+        self.exits["south"] = south
+        self.exits["west"] = west
         self.next = None
         self.description = ""
+        self.isOccupied = False
     #exits must be a list of length 4
     def createExits(self,exits):
-        if len(exits)!=4:
-            return None
-        for i in exits:
-            self.exits[i] = exits[i]
+        self.exits["north"] = exits[0]
+        self.exits["east"] = exits[1]
+        self.exits["south"] = exits[2]
+        self.exits["west"] = exits[3]
 
     def __str__(self):
         ret = self.description
-        exit_desc = "\nThere are exit(s) to the "
-        for i in exits:
-            if exits[i] == None:
+        exit_desc = "There are exit(s) to the "
+        for i in self.exits:
+            if self.exits[i] == None:
                 continue
-            exit_desc += directions[i] 
-            if exits[i]!=self.west:
-                exit_desc += ", "
-        ret += exits_desc + "\n"
+            exit_desc += i 
+            #TODO eliminate comma after last entry
+            exit_desc += ", "
+        ret += exit_desc + "\n"
         return ret
          
 
@@ -43,7 +41,7 @@ class RoomList(object):
         else:
             room.next = self.head
             self.head = room    
-        size += 1 
+        self.size += 1 
 
 #search through list to find room with matching name
 #Return: room or None if room is not found
