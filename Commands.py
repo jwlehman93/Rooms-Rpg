@@ -36,29 +36,27 @@ def processCommand(msg,player):
             #exit inventory
             cmd, args = ans.split(" ",1)
             obj = Item.search(player.inventory,args)
-            if ans == 'q':
+            if cmd == 'q':
                 break
-            elif ans == "help":
+            elif cmd == "help":
                 print("=====Inventory Help Screen=====\n\nCommands you can use are as follows:\nlist - lists all objects in your inventory\nexamine <object> - gives description of object")
-                print("use <object> - uses object for its purpose\ncombine <object1> <object2> - combines 2 objects\ndrop <object> - drops object from your inventory\n")
+                print("use <object> - uses object for its purpose\ndrop <object> - drops object from your inventory\n")
                 print("equip <object> - if object is wearable or wieldable it will be equipped\n\n")
             #TODO write functions for inventory manager
-            elif ans == "list":
+            elif cmd == "list":
                 i = player.inventory.head
                 while i is not None:
                     print(i.name)
             #all commands after this point require an item argument
             elif obj == None:
                 print("You don't have that item")
-            elif ans == "examine":
+            elif cmd == "examine":
                     print (obj)
-            elif ans == "use":
-                obj.use()
-            elif ans == "combine":
+            elif cmd == "use":
+                obj.use(player)
+            elif cmd == "drop":
                 pass
-            elif ans == "drop":
-                pass
-            elif ans == "equip":
+            elif cmd == "equip":
                 pass
             else:
                 i = player.inventory.head

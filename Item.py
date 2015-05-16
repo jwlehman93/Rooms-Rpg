@@ -48,7 +48,7 @@ class Item(object):
     def drop(self,player):
         player.inventory.remove(self)
 
-    def use(self):
+    def use(self,player):
         print("Item use test Item Class")
 
     
