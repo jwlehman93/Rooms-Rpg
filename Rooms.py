@@ -24,7 +24,7 @@ class Room(object):
             if self.exits[i] == None:
                 continue
             exit_desc += i 
-            #TODO eliminate comma after last entry
+            #TODO eliminate comma after last entry and put and before last entry
             exit_desc += ", "
         ret += exit_desc + "\n"
         return ret
