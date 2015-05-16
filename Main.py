@@ -1,6 +1,7 @@
 import Rooms
 import Player
 import Commands
+import Inventory
 
 rooms = Rooms.RoomList()
 room1 = Rooms.Room("Room 1")

@@ -1,7 +1,7 @@
 #For handling commands from the player
 import Rooms
 import Player
-import Item
+import Inventory
 
 def processCommand(msg,player):
     cmd, args = msg.split(" ")
