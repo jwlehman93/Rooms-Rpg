@@ -55,7 +55,7 @@ def processCommand(msg,player):
             elif cmd == "use":
                 obj.use(player)
             elif cmd == "drop":
-                pass
+                player.inventory.remove(obj)
             elif cmd == "equip":
                 pass
             else:
