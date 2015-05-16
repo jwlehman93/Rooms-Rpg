@@ -42,9 +42,11 @@ def processCommand(msg,player):
                 print("equip <object> - if object is wearable or wieldable it will be equipped\n\n")
             #TODO write functions for inventory manager
             elif ans == "list":
-                pass
+                i = player.inventory.head
+                while i is not None:
+                    print(i.name)
             elif ans == "examine":
-                pass
+
             elif ans == "use":
                 pass
             elif ans == "combine":

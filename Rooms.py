@@ -10,6 +10,7 @@ class Room(object):
         self.next = None
         self.description = ""
         self.isOccupied = False
+
     #exits must be a list of length 4
     def createExits(self,exits):
         self.exits["north"] = exits[0]

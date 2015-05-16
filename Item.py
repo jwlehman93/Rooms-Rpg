@@ -26,10 +26,14 @@ class Inventory(object):
             self.head = i.next 
         else:
             prev.next = i.next
-            
-
-                 
-
+#search through list to find item with name matching value            
+def search(list,value):
+    i = list.head
+    while i is not None:
+        if i.name == value:
+            return i
+        i = i.next
+    return None
 
 
 class Item(object):
