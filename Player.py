@@ -1,5 +1,5 @@
 import Rooms
-import Item
+import Inventory
 class Player(object):
     """Player that traverses rooms"""
     def __init__(self,name):
@@ -9,8 +9,9 @@ class Player(object):
         self.damsels = 0
         self.enemies = 0
         self.items = 0
-        self.inventory = Item.Inventory()
+        self.inventory = Inventory.Inventory()
         self.health = 10
+        self.equipment = Inventory.Equipment()
     
     def enterRoom(self,room):
         if room == None:

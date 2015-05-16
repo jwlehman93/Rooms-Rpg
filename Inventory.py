@@ -37,6 +37,45 @@ def search(list,value):
     return None
 
 
+
+
+class Equipment(object):
+    """Items that player currently has equipped"""
+    def __init__(self,head = None,chest = None, legs = None, feet = None, left_hand = None, right_hand = None):
+        self.head = head
+        self.chest = chest
+        self.legs = legs
+        self.feet = feet
+        self.left_hand = left_hand
+        self.right_hand = right_hand
+
+    def __str__(self):
+        print("You are wearing:\n head: %s\n chest: %s\n legs %s\n\nYou are wielding:\n %s left hand: %s\n right hand: %s\n" % (self.head,self.chest,self.legs,self.feet,self.left_hand,self.right_hand))
+
+    def equip(self,item):
+        if item is not wearable:
+            print("You cannot equip that item.")
+        else:
+            #TODO implement if item slot is already full
+            if item.type == "head":
+                self.head = item
+            elif item.type == "chest":
+                self.chest = item
+            elif item.type == "legs":
+                self.legs = item
+            elif item.type == "feet":
+                self.feet = item
+            elif item.type == "right hand":
+                self.right_hand = item
+            elif item.type == "left hand":
+                self.left_hand = item
+
+
+           
+
+
+
+
 class Item(object):
     """Class and subclasses to handle items"""
     def __init__(self,name,canCombine):
