@@ -1,6 +1,7 @@
 #For handling commands from the player
 import Rooms
 import Player
+import Item
 
 def processCommand(msg,player):
     cmd, args = msg.split(" ")
@@ -34,6 +35,7 @@ def processCommand(msg,player):
             ans = input("Type 'help' if you would like to see a list of commands for the inventory")
             #exit inventory
             cmd, args = ans.split(" ",1)
+            obj = Item.search(player.inventory,args)
             if ans == 'q':
                 break
             elif ans == "help":
@@ -45,10 +47,13 @@ def processCommand(msg,player):
                 i = player.inventory.head
                 while i is not None:
                     print(i.name)
+            #all commands after this point require an item argument
+            elif obj == None:
+                print("You don't have that item")
             elif ans == "examine":
-
+                    print (obj)
             elif ans == "use":
-                pass
+                obj.use()
             elif ans == "combine":
                 pass
             elif ans == "drop":

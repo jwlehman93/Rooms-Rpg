@@ -26,6 +26,7 @@ class Inventory(object):
             self.head = i.next 
         else:
             prev.next = i.next
+
 #search through list to find item with name matching value            
 def search(list,value):
     i = list.head
@@ -38,20 +39,26 @@ def search(list,value):
 
 class Item(object):
     """Class and subclasses to handle items"""
-    def __init__(self,name):
+    def __init__(self,name,canCombine):
+
         self.name = name
         self.next = None
+        self.canCombine = canCombine
+
     def drop(self,player):
         player.inventory.remove(self)
+
+    def use(self):
+        print("Item use test Item Class")
 
     
         
 
 class HealthPotion(Item):
-    def __init__(self,name):
-        self.name = name
+    def __init__(self,name,canCombine):
         self.used = False
         self.value = 5
+        super(HealthPotion,self).__init__(self,name,canCombine)
     def use(self,player):
         player.health += 5
 
