@@ -31,7 +31,7 @@ while isPlaying == True:
     while player1.isAlive == True:
         Commands.processCommand(player1.requestInput("What would you like to do?\n"),player1)
     ans = player1.requestInput("Would you like to play again?(Type y or n and press <enter>)\n")
-    while(True):
+    while True:
         if ans == "n":
             isPlaying = False
             break

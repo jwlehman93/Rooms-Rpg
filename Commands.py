@@ -4,7 +4,10 @@ import Player
 import Inventory
 
 def processCommand(msg,player):
-    cmd, args = msg.split(" ")
+    try:
+        cmd, args = msg.split(" ")
+    except ValueError:
+        cmd = msg.strip()
 
     if(cmd == "help"):
         print("\n======Welcome to the Rooms:The RPG Help Section======\n\nCommands you can use are as follows:\nn - head north\nw - head west\ns - head south")
